@@ -34,6 +34,8 @@ function displayAdjustedHour(){
     saveBtn.className = "day-align save-btn";
     saveBtn.innerText = "save";
     timeBlock.appendChild(saveBtn);
+    
+
   }
 }
 displayAdjustedHour();
@@ -73,6 +75,7 @@ $(document).ready(function() {
   });
   // displaying saved data
   // for loop maybe
+
   $("#hour-9 .search-area").val(localStorage.getItem("hour-9"));
   $("#hour-10 .search-area").val(localStorage.getItem("hour-10"));
   $("#hour-11 .search-area").val(localStorage.getItem("hour-11"));
@@ -82,6 +85,9 @@ $(document).ready(function() {
   $("#hour-15 .search-area").val(localStorage.getItem("hour-15"));
   $("#hour-16 .search-area").val(localStorage.getItem("hour-16"));
   $("#hour-17 .search-area").val(localStorage.getItem("hour-17"));
+
+  // display current day on page
+  $("#currentDay").text(moment().format("dddd, MMMM Do"));
 });
 
 
