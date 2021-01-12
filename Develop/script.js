@@ -34,8 +34,6 @@ function displayAdjustedHour(){
     saveBtn.className = "day-align save-btn";
     saveBtn.innerText = "save";
     timeBlock.appendChild(saveBtn);
-    
-
   }
 }
 displayAdjustedHour();
@@ -72,19 +70,15 @@ $(document).ready(function() {
     var taskDescription = $(this).siblings(".search-area").val();
     var id = $(this).parent().attr("id");
     localStorage.setItem(id, taskDescription);
+    alert("You made an update in your schedule! Refresh to check for changes");
   });
   // displaying saved data
-  // for loop maybe
 
-  $("#hour-9 .search-area").val(localStorage.getItem("hour-9"));
-  $("#hour-10 .search-area").val(localStorage.getItem("hour-10"));
-  $("#hour-11 .search-area").val(localStorage.getItem("hour-11"));
-  $("#hour-12 .search-area").val(localStorage.getItem("hour-12"));
-  $("#hour-13 .search-area").val(localStorage.getItem("hour-13"));
-  $("#hour-14 .search-area").val(localStorage.getItem("hour-14"));
-  $("#hour-15 .search-area").val(localStorage.getItem("hour-15"));
-  $("#hour-16 .search-area").val(localStorage.getItem("hour-16"));
-  $("#hour-17 .search-area").val(localStorage.getItem("hour-17"));
+
+  // for loop to store hourly tasks
+  for (var i = 9; i <= 17; i ++){
+    $("#hour-" + i + " .search-area").val(localStorage.getItem("hour-" + i));
+  }
 
   // display current day on page
   $("#currentDay").text(moment().format("dddd, MMMM Do"));
